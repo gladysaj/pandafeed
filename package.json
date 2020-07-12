@@ -19,7 +19,7 @@
     "prebuild": "npm run build:tailwind",
     "lint": "eslint './src/**/*.{js,jsx}'",
     "lint:fix": "eslint './src/**/*.{js,jsx}' --fix",
-    "start": "react-scripts start",
+    "start": "PORT=4444 react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
