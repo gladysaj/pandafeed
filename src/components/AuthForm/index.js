@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
 
 import Alert from '../Alert';
-
-const baseUrl = 'http://localhost:3000/api';
+import { auth } from '../../services/auth';
 
 const AuthForm = (props) => {
   const [name, setName] = useState();
@@ -15,27 +13,15 @@ const AuthForm = (props) => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-
-    try {
-      const response = await axios.post(
-        `${baseUrl}/${props.signup ? 'signup' : 'login'}`,
-        {
-          name,
-          email,
-          password,
-        }
-      );
-      setResponse({
-        statusCode: response.status,
-        message: response.data.message,
-      });
-    } catch (error) {
-      console.log(error.response);
-      setResponse({
-        statusCode: error.response.status,
-        message: error.response.data.message,
-      });
-    }
+    auth(
+      props.signup,
+      {
+        name,
+        email,
+        password,
+      },
+      setResponse
+    );
   };
 
   return (
