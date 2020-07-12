@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Hero = () => (
   <section className="text-gray-700 body-font">
@@ -25,9 +26,11 @@ const Hero = () => (
             placeholder="qizai@email.com"
             type="text"
           />
-          <button className="inline-flex text-white bg-green-500 border-0 py-2 px-6 focus:outline-none hover:bg-green-600 rounded text-lg">
-            Get started!
-          </button>
+          <Link to="/signup">
+            <button className="inline-flex text-white bg-green-500 border-0 py-2 px-6 focus:outline-none hover:bg-green-600 rounded text-lg">
+              Get started!
+            </button>
+          </Link>
         </div>
         <p className="text-sm mt-2 text-gray-500 mb-8 w-full">
           Start your free 14 day trial, no credit card needed
