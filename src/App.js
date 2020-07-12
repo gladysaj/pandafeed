@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
 import Navbar from './components/Navbar';
+import Hero from './components/Hero';
 
 export default function App() {
   return (
@@ -15,7 +16,7 @@ export default function App() {
           <h1>Log in</h1>
         </Route>
         <Route path="/">
-          <h1>Home</h1>
+          <Hero />
         </Route>
       </Switch>
     </Router>
