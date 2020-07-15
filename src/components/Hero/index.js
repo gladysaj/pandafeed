@@ -8,7 +8,7 @@ const Hero = () => (
         <img
           className="object-cover object-center rounded"
           alt="qizai"
-          src="https://lh3.googleusercontent.com/proxy/Iat6wTriEUh7XVo0GoUW7TWz24oMWjNWRCP-2PX_eRjdQbsdm8IFcD6L1qPHEXZZWilvYg52CxEp05FY_r-vtHFOhqfRn1NJ8ggyc4qW7jX3WMUDjKbar2S-1jpP"
+          src="http://spanish.xinhuanet.com/2019-11/21/138572012_15743043559481n.jpg"
         />
       </div>
       <div className="lg:flex-grow md:w-1/2 lg:pl-24 md:pl-16 flex flex-col md:items-start md:text-left items-center text-center">
