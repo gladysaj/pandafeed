@@ -7,6 +7,7 @@ import AuthForm from './components/AuthForm';
 import Pricing from './components/Pricing';
 import Features from './components/Features';
 import About from './components/About';
+import Footer from './components/Footer';
 
 export default function App() {
   return (
@@ -24,6 +25,7 @@ export default function App() {
           <Features />
           <Pricing />
           <About />
+          <Footer />
         </Route>
       </Switch>
     </Router>
