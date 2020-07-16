@@ -20,7 +20,7 @@ const Navbar = () => {
           to="/"
           className="flex order-first lg:order-none lg:w-1/5 title-font font-medium items-center text-gray-900 lg:items-center lg:justify-center mb-4 md:mb-0"
         >
-          <img src="logo.svg" className="w-10" />
+          <img src="logo.svg" className="w-10" alt="pandafeed" />
           <span className="ml-3 text-xl">pandafeed</span>
         </Link>
         <div className="lg:w-2/5 inline-flex lg:justify-end ml-5 lg:ml-0 items-center">

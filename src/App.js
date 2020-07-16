@@ -8,6 +8,7 @@ import Pricing from './components/Pricing';
 import Features from './components/Features';
 import About from './components/About';
 import Footer from './components/Footer';
+import Onboarding from './components/Onboarding';
 
 export default function App() {
   return (
@@ -20,12 +21,15 @@ export default function App() {
         <Route path="/login">
           <AuthForm />
         </Route>
-        <Route path="/">
+        <Route path="/" exact>
           <Hero />
           <Features />
           <Pricing />
           <About />
           <Footer />
+        </Route>
+        <Route path="/onboarding">
+          <Onboarding />
         </Route>
       </Switch>
     </Router>
