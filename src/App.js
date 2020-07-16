@@ -29,7 +29,7 @@ export default function App() {
           <About />
           <Footer />
         </Route>
-        <Route path="/onboarding">
+        <Route path="/home">
           <Onboarding />
         </Route>
         <Route path="/create-company">

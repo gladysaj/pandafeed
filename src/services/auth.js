@@ -4,7 +4,7 @@ axios.defaults.withCredentials = true;
 
 const baseUrl = 'http://localhost:3000/api';
 
-export const auth = async (isRegister, credentials, setResponse) => {
+export const auth = async (isRegister, credentials, setResponse, history) => {
   try {
     const response = await axios.post(
       `${baseUrl}/${isRegister ? 'signup' : 'login'}`,
@@ -14,6 +14,7 @@ export const auth = async (isRegister, credentials, setResponse) => {
       statusCode: response.status,
       message: response.data.message,
     });
+    history.push('/home');
   } catch (error) {
     setResponse({
       statusCode: error.response.status,

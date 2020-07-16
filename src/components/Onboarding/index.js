@@ -60,9 +60,11 @@ const Onboarding = () => {
               </svg>
             </div>
             <div className="flex-grow sm:pl-6 mt-6 sm:mt-0">
-              <h2 className="font-medium title-font text-gray-900 mb-1 text-xl">
-                Create your changelog
-              </h2>
+              <Link to="">
+                <h2 className="font-medium title-font text-gray-900 mb-1 text-xl">
+                  Create your changelog
+                </h2>
+              </Link>
               <p className="leading-relaxed">
                 VHS cornhole pop-up, try-hard 8-bit iceland helvetica. Kinfolk
                 bespoke try-hard cliche palo santo offal.
@@ -93,9 +95,11 @@ const Onboarding = () => {
               </svg>
             </div>
             <div className="flex-grow sm:pl-6 mt-6 sm:mt-0">
-              <h2 className="font-medium title-font text-gray-900 mb-1 text-xl">
-                Create your board
-              </h2>
+              <Link to="">
+                <h2 className="font-medium title-font text-gray-900 mb-1 text-xl">
+                  Create your board
+                </h2>
+              </Link>
               <p className="leading-relaxed">
                 VHS cornhole pop-up, try-hard 8-bit iceland helvetica. Kinfolk
                 bespoke try-hard cliche palo santo offal.

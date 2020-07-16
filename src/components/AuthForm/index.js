@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 import Alert from '../Alert';
 import { auth } from '../../services/auth';
@@ -10,6 +11,7 @@ const AuthForm = (props) => {
   const [password, setPassword] = useState();
   const [passwordConfirmation, setPasswordConfirmation] = useState();
   const [response, setResponse] = useState({ statusCode: null, message: null });
+  const history = useHistory();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -20,7 +22,8 @@ const AuthForm = (props) => {
         email,
         password,
       },
-      setResponse
+      setResponse,
+      history
     );
   };
 
@@ -47,7 +50,7 @@ const AuthForm = (props) => {
                   to="/login"
                   className="font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:underline transition ease-in-out duration-150"
                 >
-                  Sign-in instead
+                  Log-in instead
                 </Link>
               </>
             ) : (
