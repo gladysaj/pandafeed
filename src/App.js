@@ -9,6 +9,7 @@ import Features from './components/Features';
 import About from './components/About';
 import Footer from './components/Footer';
 import Onboarding from './components/Onboarding';
+import CreateCompany from './components/CreateCompany';
 
 export default function App() {
   return (
@@ -30,6 +31,9 @@ export default function App() {
         </Route>
         <Route path="/onboarding">
           <Onboarding />
+        </Route>
+        <Route path="/create-company">
+          <CreateCompany />
         </Route>
       </Switch>
     </Router>
