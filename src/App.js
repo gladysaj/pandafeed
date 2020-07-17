@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
 import Navbar from './components/Navbar';
@@ -12,15 +12,17 @@ import Onboarding from './components/Onboarding';
 import CreateCompany from './components/CreateCompany';
 
 export default function App() {
+  const [isAuth, setIsAuth] = useState(false);
+
   return (
     <Router>
-      <Navbar />
+      <Navbar isAuth={isAuth} />
       <Switch>
         <Route path="/signup">
-          <AuthForm signup />
+          <AuthForm setIsAuth={setIsAuth} signup />
         </Route>
         <Route path="/login">
-          <AuthForm />
+          <AuthForm setIsAuth={setIsAuth} />
         </Route>
         <Route path="/" exact>
           <Hero />

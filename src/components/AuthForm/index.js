@@ -15,16 +15,28 @@ const AuthForm = (props) => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    auth(
-      props.signup,
-      {
+
+    try {
+      const response = await auth(props.signup, {
         name,
         email,
         password,
-      },
-      setResponse,
-      history
-    );
+      });
+      setResponse({
+        statusCode: response.status,
+        message: response.data.message,
+      });
+      localStorage.setItem('user', JSON.stringify(response.data.user));
+      setTimeout(() => {
+        props.setIsAuth(true);
+        history.push('/home');
+      }, 2000);
+    } catch (error) {
+      setResponse({
+        statusCode: error.response.status,
+        message: error.response.data.message,
+      });
+    }
   };
 
   return (
