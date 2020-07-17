@@ -14,7 +14,9 @@ export const auth = async (isRegister, credentials, setResponse, history) => {
       statusCode: response.status,
       message: response.data.message,
     });
-    history.push('/home');
+    setTimeout(() => {
+      history.push('/home');
+    }, 5000);
   } catch (error) {
     setResponse({
       statusCode: error.response.status,
