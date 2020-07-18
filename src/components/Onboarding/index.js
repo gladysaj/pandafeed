@@ -2,113 +2,38 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const Onboarding = () => {
+  const user = JSON.parse(localStorage.getItem('user'));
+
   return (
-    <section className="text-gray-700 body-font">
-      <div className="container px-5 py-24 mx-auto flex flex-wrap">
-        <div className="flex relative pt-10 pb-20 sm:items-center md:w-2/3 mx-auto">
-          <div className="h-full w-6 absolute inset-0 flex items-center justify-center">
-            <div className="h-full w-1 bg-gray-200 pointer-events-none"></div>
+    <div className="bg-gray-50 px-40 mt-12">
+      <div className="max-w-screen-xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 lg:flex lg:items-center lg:justify-between">
+        <h2 className="text-3xl leading-9 font-extrabold tracking-tight text-gray-900 sm:text-4xl sm:leading-10">
+          {`Welcome ${user.name}! 👋`}
+          <br />
+          <span className="text-indigo-600 text-2xl">
+            Let's get started by creating your first board.
+          </span>
+        </h2>
+        <div className="mt-8 flex lg:flex-shrink-0 lg:mt-0">
+          <div className="inline-flex rounded-md shadow">
+            <Link
+              to="/create-board"
+              className="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:shadow-outline transition duration-150 ease-in-out"
+            >
+              Create Board
+            </Link>
           </div>
-          <div className="flex-shrink-0 w-6 h-6 rounded-full mt-10 sm:mt-0 inline-flex items-center justify-center bg-green-500 text-white relative z-10 title-font font-medium text-sm">
-            1
-          </div>
-          <div className="flex-grow md:pl-8 pl-6 flex sm:items-center items-start flex-col sm:flex-row">
-            <div className="flex-shrink-0 w-24 h-24 bg-green-100 text-green-500 rounded-full inline-flex items-center justify-center">
-              <svg
-                fill="none"
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                className="w-12 h-12"
-                viewBox="0 0 24 24"
-              >
-                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-              </svg>
-            </div>
-            <div className="flex-grow sm:pl-6 mt-6 sm:mt-0">
-              <Link to="/create-company">
-                <h2 className="font-medium title-font text-gray-900 mb-1 text-xl">
-                  Create your company
-                </h2>
-              </Link>
-              <p className="leading-relaxed">
-                Start by creating your first company!
-              </p>
-            </div>
-          </div>
-        </div>
-        <div className="flex relative pb-20 sm:items-center md:w-2/3 mx-auto">
-          <div className="h-full w-6 absolute inset-0 flex items-center justify-center">
-            <div className="h-full w-1 bg-gray-200 pointer-events-none"></div>
-          </div>
-          <div className="flex-shrink-0 w-6 h-6 rounded-full mt-10 sm:mt-0 inline-flex items-center justify-center bg-green-500 text-white relative z-10 title-font font-medium text-sm">
-            2
-          </div>
-          <div className="flex-grow md:pl-8 pl-6 flex sm:items-center items-start flex-col sm:flex-row">
-            <div className="flex-shrink-0 w-24 h-24 bg-green-100 text-green-500 rounded-full inline-flex items-center justify-center">
-              <svg
-                fill="none"
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                className="w-12 h-12"
-                viewBox="0 0 24 24"
-              >
-                <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
-              </svg>
-            </div>
-            <div className="flex-grow sm:pl-6 mt-6 sm:mt-0">
-              <Link to="">
-                <h2 className="font-medium title-font text-gray-900 mb-1 text-xl">
-                  Create your changelog
-                </h2>
-              </Link>
-              <p className="leading-relaxed">
-                VHS cornhole pop-up, try-hard 8-bit iceland helvetica. Kinfolk
-                bespoke try-hard cliche palo santo offal.
-              </p>
-            </div>
-          </div>
-        </div>
-        <div className="flex relative pb-20 sm:items-center md:w-2/3 mx-auto">
-          <div className="h-full w-6 absolute inset-0 flex items-center justify-center">
-            <div className="h-full w-1 bg-gray-200 pointer-events-none"></div>
-          </div>
-          <div className="flex-shrink-0 w-6 h-6 rounded-full mt-10 sm:mt-0 inline-flex items-center justify-center bg-green-500 text-white relative z-10 title-font font-medium text-sm">
-            3
-          </div>
-          <div className="flex-grow md:pl-8 pl-6 flex sm:items-center items-start flex-col sm:flex-row">
-            <div className="flex-shrink-0 w-24 h-24 bg-green-100 text-green-500 rounded-full inline-flex items-center justify-center">
-              <svg
-                fill="none"
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                className="w-12 h-12"
-                viewBox="0 0 24 24"
-              >
-                <circle cx="12" cy="5" r="3"></circle>
-                <path d="M12 22V8M5 12H2a10 10 0 0020 0h-3"></path>
-              </svg>
-            </div>
-            <div className="flex-grow sm:pl-6 mt-6 sm:mt-0">
-              <Link to="">
-                <h2 className="font-medium title-font text-gray-900 mb-1 text-xl">
-                  Create your board
-                </h2>
-              </Link>
-              <p className="leading-relaxed">
-                VHS cornhole pop-up, try-hard 8-bit iceland helvetica. Kinfolk
-                bespoke try-hard cliche palo santo offal.
-              </p>
-            </div>
+          <div className="ml-3 inline-flex rounded-md shadow">
+            <a
+              href="#"
+              className="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-indigo-600 bg-white hover:text-indigo-500 focus:outline-none focus:shadow-outline transition duration-150 ease-in-out"
+            >
+              Skip for now
+            </a>
           </div>
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 
