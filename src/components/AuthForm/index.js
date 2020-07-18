@@ -26,11 +26,19 @@ const AuthForm = (props) => {
         statusCode: response.status,
         message: response.data.message,
       });
-      localStorage.setItem('user', JSON.stringify(response.data.user));
       setTimeout(() => {
-        props.setIsAuth(true);
-        history.push('/home');
-      }, 2000);
+        if (props.signup) {
+          history.push('/login');
+          setResponse({
+            statusCode: null,
+            message: null,
+          });
+        } else {
+          localStorage.setItem('user', JSON.stringify(response.data.user));
+          props.setIsAuth(true);
+          history.push('/home');
+        }
+      }, 1200);
     } catch (error) {
       setResponse({
         statusCode: error.response.status,
