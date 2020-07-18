@@ -8,6 +8,7 @@ import { auth } from '../../services/auth';
 const AuthForm = (props) => {
   const [name, setName] = useState();
   const [email, setEmail] = useState();
+  const [company, setCompany] = useState();
   const [password, setPassword] = useState();
   const [passwordConfirmation, setPasswordConfirmation] = useState();
   const [response, setResponse] = useState({ statusCode: null, message: null });
@@ -20,6 +21,7 @@ const AuthForm = (props) => {
       const response = await auth(props.signup, {
         name,
         email,
+        company,
         password,
       });
       setResponse({
@@ -122,6 +124,22 @@ const AuthForm = (props) => {
                 placeholder="Email address"
               />
             </div>
+            {props.signup ? (
+              <div className="-mt-px">
+                <input
+                  onChange={(event) => setCompany(event.target.value)}
+                  value={company}
+                  aria-label="Company"
+                  name="company"
+                  type="text"
+                  required
+                  className={`appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 ${
+                    props.signup ? 'rounded-none' : 'rounded-t-md'
+                  } focus:outline-none focus:shadow-outline-blue focus:border-blue-300 focus:z-10 sm:text-sm sm:leading-5`}
+                  placeholder="Company"
+                />
+              </div>
+            ) : null}
             <div className="-mt-px">
               <input
                 onChange={(event) => setPassword(event.target.value)}

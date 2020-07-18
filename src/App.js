@@ -10,6 +10,7 @@ import About from './components/About';
 import Footer from './components/Footer';
 import Onboarding from './components/Onboarding';
 import CreateCompany from './components/CreateCompany';
+import CreateChangelog from './components/CreateChangelog';
 
 export default function App() {
   const [isAuth, setIsAuth] = useState(false);
