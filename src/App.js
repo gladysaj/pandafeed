@@ -9,8 +9,8 @@ import Features from './components/Features';
 import About from './components/About';
 import Footer from './components/Footer';
 import Onboarding from './components/Onboarding';
-import CreateCompany from './components/CreateCompany';
-import CreateChangelog from './components/CreateChangelog';
+import CreateBoard from './components/CreateBoard';
+import CreateUpdate from './components/CreateUpdate';
 
 export default function App() {
   const [isAuth, setIsAuth] = useState(false);
@@ -35,8 +35,11 @@ export default function App() {
         <Route path="/home">
           <Onboarding />
         </Route>
-        <Route path="/create-company">
-          <CreateCompany />
+        <Route path="/create-board">
+          <CreateBoard />
+        </Route>
+        <Route path="/create-update">
+          <CreateUpdate />
         </Route>
       </Switch>
     </Router>
