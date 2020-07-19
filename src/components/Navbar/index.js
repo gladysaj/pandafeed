@@ -27,13 +27,13 @@ const Navbar = ({ isAuth }) => {
     <header className="text-gray-700 body-font">
       <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
         <nav className="flex lg:w-2/5 flex-wrap items-center text-base md:ml-auto">
-          <a href="#features" className="mr-5 hover:text-gray-900">
+          <a href="#features" className="mr-5 hover:text-indigo-600">
             Features
           </a>
-          <a href="#pricing" className="mr-5 hover:text-gray-900">
+          <a href="#pricing" className="mr-5 hover:text-indigo-600">
             Pricing
           </a>
-          <a href="#about" className="hover:text-gray-900">
+          <a href="#about" className="hover:text-indigo-600">
             About
           </a>
         </nav>
@@ -48,7 +48,7 @@ const Navbar = ({ isAuth }) => {
           {localStorage.getItem('user') ? (
             <button
               onClick={handleLogout}
-              className="inline-flex items-center bg-gray-200 border-0 py-1 px-3 focus:outline-none hover:bg-gray-300 rounded text-base mt-4 md:mt-0"
+              className="inline-flex items-center bg-gray-500 border-0 py-1 px-3 focus:outline-none hover:bg-gray-600 rounded text-white mt-4 md:mt-0"
             >
               Sign Out
               <svg
@@ -69,7 +69,7 @@ const Navbar = ({ isAuth }) => {
                 Log in
               </Link>
               <Link to="/signup">
-                <button className="inline-flex items-center bg-gray-200 border-0 py-1 px-3 focus:outline-none hover:bg-gray-300 rounded text-base mt-4 md:mt-0">
+                <button className="inline-flex items-center bg-gray-500 border-0 py-1 px-3 focus:outline-none hover:bg-gray-600 rounded text-white mt-4 md:mt-0">
                   Sign up
                   <svg
                     fill="none"

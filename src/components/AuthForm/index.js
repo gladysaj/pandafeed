@@ -105,7 +105,7 @@ const AuthForm = (props) => {
                   name="name"
                   type="text"
                   required
-                  className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:shadow-outline-blue focus:border-blue-300 focus:z-10 sm:text-sm sm:leading-5"
+                  className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:shadow-outline-purple focus:border-purple-300 focus:z-10 sm:text-sm sm:leading-5"
                   placeholder="Name"
                 />
               ) : null}
@@ -120,7 +120,7 @@ const AuthForm = (props) => {
                 required
                 className={`appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 ${
                   props.signup ? 'rounded-none' : 'rounded-t-md'
-                } focus:outline-none focus:shadow-outline-blue focus:border-blue-300 focus:z-10 sm:text-sm sm:leading-5`}
+                } focus:outline-none focus:shadow-outline-purple focus:border-purple-300 focus:z-10 sm:text-sm sm:leading-5`}
                 placeholder="Email address"
               />
             </div>
@@ -135,7 +135,7 @@ const AuthForm = (props) => {
                   required
                   className={`appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 ${
                     props.signup ? 'rounded-none' : 'rounded-t-md'
-                  } focus:outline-none focus:shadow-outline-blue focus:border-blue-300 focus:z-10 sm:text-sm sm:leading-5`}
+                  } focus:outline-none focus:shadow-outline-purple focus:border-purple-300 focus:z-10 sm:text-sm sm:leading-5`}
                   placeholder="Company"
                 />
               </div>
@@ -150,7 +150,7 @@ const AuthForm = (props) => {
                 required
                 className={`appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 ${
                   props.signup ? 'rounded-none' : 'rounded-b-md'
-                } focus:outline-none focus:shadow-outline-blue focus:border-blue-300 focus:z-10 sm:text-sm sm:leading-5`}
+                } focus:outline-none focus:shadow-outline-purple focus:border-purple-300 focus:z-10 sm:text-sm sm:leading-5`}
                 placeholder="Password"
               />
             </div>
@@ -165,7 +165,7 @@ const AuthForm = (props) => {
                   name="confirm-password"
                   type="password"
                   required
-                  className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:shadow-outline-blue focus:border-blue-300 focus:z-10 sm:text-sm sm:leading-5"
+                  className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:shadow-outline-purple focus:border-purple-300 focus:z-10 sm:text-sm sm:leading-5"
                   placeholder="Confirm password"
                 />
               </div>

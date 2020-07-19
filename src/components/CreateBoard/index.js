@@ -26,7 +26,7 @@ const CreateBoard = () => {
   };
 
   return (
-    <div>
+    <div className="flex flex-col justify-center mt-12 mx-16">
       {response.statusCode !== null ? (
         <Alert
           error={response.statusCode === 200 ? false : true}
@@ -34,7 +34,13 @@ const CreateBoard = () => {
           text={response.message}
         />
       ) : null}
-      <form className="w-full max-w-lg" onSubmit={handleSubmit}>
+      <h1 className="text-3xl font-bold leading-tight text-gray-900 mb-6">
+        Create a Board
+      </h1>
+      <form
+        className="w-full max-w-lg items-center border border-gray-300 p-5 rounded-lg"
+        onSubmit={handleSubmit}
+      >
         <div className="flex flex-wrap -mx-3 mb-6">
           <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0 ml-3">
             <label
@@ -46,22 +52,20 @@ const CreateBoard = () => {
             <input
               onChange={(event) => setTitle(event.target.value)}
               value={title}
-              className="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
-              id="grid-first-name"
-              type="text"
+              className="bg-white rounded border border-gray-400 focus:outline-none focus:border-indigo-500 text-base px-4 py-2 mb-1"
               placeholder="Title"
+              type="text"
             />
             {/* <p className="text-red-500 text-xs italic">
               Please fill out this field.
             </p> */}
           </div>
         </div>
-
         <div>
-          <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0 mt-10">
+          <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
             <div className="mt-6 w-full">
               <button
-                className="shadow bg-blue-500 hover:bg-blue-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
+                className="shadow bg-indigo-600 hover:bg-indigo-500 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
                 type="submit"
               >
                 Create Board

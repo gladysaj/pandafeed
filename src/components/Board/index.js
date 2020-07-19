@@ -61,18 +61,18 @@ const Board = () => {
               </p>
               <input
                 onChange={(event) => setTitle(event.target.value)}
-                className="bg-white rounded border border-gray-400 focus:outline-none focus:border-purple-500 text-base px-4 py-2 mb-4"
+                className="bg-white rounded border border-gray-400 focus:outline-none focus:border-indigo-500 text-base px-4 py-2 mb-4"
                 placeholder="Title"
                 type="text"
               />
               <textarea
                 onChange={(event) => setDetails(event.target.value)}
-                className="bg-white rounded border border-gray-400 focus:outline-none h-32 focus:border-purple-500 text-base px-4 py-2 mb-4 resize-none"
+                className="bg-white rounded border border-gray-400 focus:outline-none h-32 focus:border-indigo-500 text-base px-4 py-2 mb-4 resize-none"
                 placeholder="Details"
               ></textarea>
               <button
                 onClick={handleSubmit}
-                className="text-white bg-purple-500 border-0 py-2 px-6 focus:outline-none hover:bg-purple-600 rounded text-lg"
+                className="text-white bg-indigo-600 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-500 rounded text-lg"
               >
                 Post
               </button>

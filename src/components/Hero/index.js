@@ -22,12 +22,12 @@ const Hero = () => (
         </p>
         <div className="flex w-full md:justify-start justify-center">
           <input
-            className="bg-gray-100 rounded mr-4 border border-gray-400 focus:outline-none focus:border-green-500 text-base px-4 lg:w-full xl:w-1/2 w-2/4"
+            className="bg-gray-100 rounded mr-4 border border-gray-400 focus:outline-none focus:border-indigo-600 text-base px-4 lg:w-full xl:w-1/2 w-2/4"
             placeholder="qizai@email.com"
             type="text"
           />
           <Link to="/signup">
-            <button className="inline-flex text-white bg-green-500 border-0 py-2 px-6 focus:outline-none hover:bg-green-600 rounded text-lg">
+            <button className="inline-flex text-white bg-indigo-600 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-500 rounded text-lg">
               Get started!
             </button>
           </Link>
