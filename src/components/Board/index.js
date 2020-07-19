@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 
 import { getBoard } from '../../services/board';
+import { createPost } from '../../services/post';
 
 const fetch = async (url, setBoard) => {
   try {
@@ -15,6 +16,8 @@ const fetch = async (url, setBoard) => {
 const Board = () => {
   const history = useHistory();
   const [board, setBoard] = useState();
+  const [title, setTitle] = useState();
+  const [details, setDetails] = useState();
 
   useEffect(() => {
     fetch(history.location.pathname, setBoard);
@@ -25,6 +28,19 @@ const Board = () => {
       return board.title.charAt(0).toUpperCase() + board.title.slice(1);
     } else {
       return null;
+    }
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    try {
+      await createPost({
+        title,
+        details,
+        board: board._id,
+      });
+    } catch (error) {
+      console.log(error);
     }
   };
 
@@ -43,15 +59,20 @@ const Board = () => {
               Submit a request or give some feedback
             </p>
             <input
+              onChange={(event) => setTitle(event.target.value)}
               className="bg-white rounded border border-gray-400 focus:outline-none focus:border-purple-500 text-base px-4 py-2 mb-4"
               placeholder="Title"
               type="text"
             />
             <textarea
+              onChange={(event) => setDetails(event.target.value)}
               className="bg-white rounded border border-gray-400 focus:outline-none h-32 focus:border-purple-500 text-base px-4 py-2 mb-4 resize-none"
               placeholder="Details"
             ></textarea>
-            <button className="text-white bg-purple-500 border-0 py-2 px-6 focus:outline-none hover:bg-purple-600 rounded text-lg">
+            <button
+              onClick={handleSubmit}
+              className="text-white bg-purple-500 border-0 py-2 px-6 focus:outline-none hover:bg-purple-600 rounded text-lg"
+            >
               Post
             </button>
             <p className="text-xs text-gray-500 mt-3">
