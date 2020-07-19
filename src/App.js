@@ -8,9 +8,9 @@ import Pricing from './components/Pricing';
 import Features from './components/Features';
 import About from './components/About';
 import Footer from './components/Footer';
-import Onboarding from './components/Onboarding';
 import CreateBoard from './components/CreateBoard';
 import CreateUpdate from './components/CreateUpdate';
+import Home from './components/Home';
 
 export default function App() {
   const [isAuth, setIsAuth] = useState(false);
@@ -33,7 +33,7 @@ export default function App() {
           <Footer />
         </Route>
         <Route path="/home">
-          <Onboarding />
+          <Home />
         </Route>
         <Route path="/create-board">
           <CreateBoard />
