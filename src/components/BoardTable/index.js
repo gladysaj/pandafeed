@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const BoardTable = (props) => {
   return (
@@ -9,7 +10,7 @@ const BoardTable = (props) => {
             <thead>
               <tr>
                 <th className="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
-                  Baord Name
+                  Board Name
                 </th>
                 <th className="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
                   Title
@@ -63,12 +64,12 @@ const BoardTable = (props) => {
                       Owner
                     </td>
                     <td className="px-6 py-4 whitespace-no-wrap text-right border-b border-gray-200 text-sm leading-5 font-medium">
-                      <a
-                        href="#"
+                      <Link
+                        to={`${board.companyName}/${board.title}`}
                         className="text-indigo-600 hover:text-indigo-900"
                       >
                         Go to board
-                      </a>
+                      </Link>
                     </td>
                   </tr>
                 );

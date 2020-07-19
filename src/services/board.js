@@ -11,3 +11,7 @@ export const createBoard = (data) => {
 export const getBoards = () => {
   return axios.get(`${baseUrl}/get-boards`);
 };
+
+export const getBoard = (url) => {
+  return axios.get(`${baseUrl}/get-board${url}`);
+};

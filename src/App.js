@@ -11,6 +11,7 @@ import Footer from './components/Footer';
 import CreateBoard from './components/CreateBoard';
 import CreateUpdate from './components/CreateUpdate';
 import Home from './components/Home';
+import Board from './components/Board';
 
 export default function App() {
   const [isAuth, setIsAuth] = useState(false);
@@ -40,6 +41,9 @@ export default function App() {
         </Route>
         <Route path="/create-update">
           <CreateUpdate />
+        </Route>
+        <Route path="/:company/:board">
+          <Board />
         </Route>
       </Switch>
     </Router>
