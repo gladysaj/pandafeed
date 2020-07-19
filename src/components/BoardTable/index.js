@@ -39,7 +39,8 @@ const BoardTable = (props) => {
                         </div>
                         <div className="ml-4">
                           <div className="text-sm leading-5 font-medium text-gray-900">
-                            {board.title}
+                            {board.title.charAt(0).toUpperCase() +
+                              board.title.slice(1)}
                           </div>
                           <div className="text-sm leading-5 text-gray-500">
                             bernardlane@example.com
