@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 
 import { getBoard } from '../../services/board';
-import { createPost } from '../../services/post';
+import { createPost, getPosts } from '../../services/post';
 
 const fetch = async (url, setBoard) => {
   try {
@@ -13,14 +13,25 @@ const fetch = async (url, setBoard) => {
   }
 };
 
+const fetchPosts = async (boardId, setPosts) => {
+  try {
+    const response = await getPosts(boardId);
+    setPosts(response.data);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 const Board = () => {
   const history = useHistory();
   const [board, setBoard] = useState();
   const [title, setTitle] = useState();
   const [details, setDetails] = useState();
+  const [posts, setPosts] = useState([{ title: '', details: '', upvote: '' }]);
 
   useEffect(() => {
     fetch(history.location.pathname, setBoard);
+    fetchPosts(board._id, setPosts);
   }, []);
 
   const renderTitle = () => {
@@ -50,7 +61,7 @@ const Board = () => {
         {renderTitle()}
       </h1>
       <div className="flex">
-        <section className="text-gray-700 body-font relative w-1/2">
+        <section className="text-gray-700 body-font relative">
           <div className="container mx-auto flex">
             <div className="bg-white rounded-lg p-8 flex flex-col w-full mt-10 md:mt-0 relative z-10 border border-gray-300">
               <h2 className="text-gray-900 text-lg mb-1 font-medium title-font">
@@ -82,38 +93,43 @@ const Board = () => {
             </div>
           </div>
         </section>
-        <div className="ml-10">
-          <div className="border border-gray-300 bg-white rounded-lg p-4 flex flex-col justify-between leading-normal">
-            <div className="mb-2">
-              <div className="flex items-start">
-                <p className="text-sm text-gray-600 flex flex-col items-center mr-4 font-medium">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="feather feather-chevron-up"
-                  >
-                    <polyline points="18 15 12 9 6 15"></polyline>
-                  </svg>
-                  1
-                </p>
-                <div className="text-gray-900 font-bold text-xl mb-2 mt-3">
-                  Can coffee make you a better developer?
+        <div className="ml-10 w-3/5">
+          {posts.map((posts, i) => {
+            return (
+              <div
+                key={i}
+                className="mb-4 border border-gray-300 bg-white rounded-lg p-4 flex flex-col justify-between leading-normal"
+              >
+                <div className="mb-2">
+                  <div className="flex items-start">
+                    <p className="text-sm text-gray-600 flex flex-col items-center mr-4 font-medium">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        className="feather feather-chevron-up"
+                      >
+                        <polyline points="18 15 12 9 6 15"></polyline>
+                      </svg>
+                      {posts.upvote}
+                    </p>
+                    <div className="text-gray-900 font-bold text-xl mb-2 mt-3">
+                      {posts.title}
+                    </div>
+                  </div>
+                  <p className="text-gray-700 text-base mt-6 px-2">
+                    {posts.details}
+                  </p>
                 </div>
               </div>
-              <p className="text-gray-700 text-base mt-6 px-2">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Voluptatibus quia, nulla! Maiores et perferendis eaque,
-                exercitationem praesentium nihil.
-              </p>
-            </div>
-          </div>
+            );
+          })}
         </div>
       </div>
     </div>
