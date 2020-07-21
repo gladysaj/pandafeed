@@ -10,7 +10,7 @@ const Pricing = () => {
             Pricing
           </h1>
           <p className="lg:w-2/3 mx-auto leading-relaxed text-base">
-            Choose the best option to build a better product 🐼
+            Pick a plan that fits your needs 🐼
           </p>
           <div className="flex mx-auto border-2 border-indigo-600 rounded overflow-hidden mt-6">
             <button className="py-1 px-4 bg-indigo-600 text-white focus:outline-none">

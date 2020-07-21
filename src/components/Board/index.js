@@ -27,12 +27,15 @@ const Board = () => {
   const [board, setBoard] = useState();
   const [title, setTitle] = useState();
   const [details, setDetails] = useState();
-  const [posts, setPosts] = useState([{ title: '', details: '', upvote: '' }]);
+  const [posts, setPosts] = useState([]);
 
   useEffect(() => {
-    fetch(history.location.pathname, setBoard);
-    fetchPosts(board._id, setPosts);
-  }, []);
+    if (board === undefined) {
+      fetch(history.location.pathname, setBoard);
+    } else {
+      fetchPosts(board._id, setPosts);
+    }
+  }, [board]);
 
   const renderTitle = () => {
     if (board !== undefined) {
@@ -50,6 +53,9 @@ const Board = () => {
         details,
         board: board._id,
       });
+      setTitle('');
+      setDetails('');
+      setPosts([...posts, { title, details, upvotes: 1 }]);
     } catch (error) {
       console.log(error);
     }
@@ -72,12 +78,14 @@ const Board = () => {
               </p>
               <input
                 onChange={(event) => setTitle(event.target.value)}
+                value={title}
                 className="bg-white rounded border border-gray-400 focus:outline-none focus:border-indigo-500 text-base px-4 py-2 mb-4"
                 placeholder="Title"
                 type="text"
               />
               <textarea
                 onChange={(event) => setDetails(event.target.value)}
+                value={details}
                 className="bg-white rounded border border-gray-400 focus:outline-none h-32 focus:border-indigo-500 text-base px-4 py-2 mb-4 resize-none"
                 placeholder="Details"
               ></textarea>
@@ -94,7 +102,7 @@ const Board = () => {
           </div>
         </section>
         <div className="ml-10 w-3/5">
-          {posts.map((posts, i) => {
+          {posts.map((post, i) => {
             return (
               <div
                 key={i}
@@ -117,14 +125,14 @@ const Board = () => {
                       >
                         <polyline points="18 15 12 9 6 15"></polyline>
                       </svg>
-                      {posts.upvote}
+                      {post.upvotes}
                     </p>
                     <div className="text-gray-900 font-bold text-xl mb-2 mt-3">
-                      {posts.title}
+                      {post.title}
                     </div>
                   </div>
                   <p className="text-gray-700 text-base mt-6 px-2">
-                    {posts.details}
+                    {post.details}
                   </p>
                 </div>
               </div>

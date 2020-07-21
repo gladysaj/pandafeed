@@ -9,5 +9,5 @@ export const createPost = (data) => {
 };
 
 export const getPosts = (boardId) => {
-  return axios.get(`${baseUrl}/get-posts${boardId}`);
+  return axios.get(`${baseUrl}/get-posts/${boardId}`);
 };
