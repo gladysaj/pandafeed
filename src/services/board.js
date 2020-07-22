@@ -2,7 +2,10 @@ import axios from 'axios';
 
 axios.defaults.withCredentials = true;
 
-const baseUrl = 'http://localhost:3000/api';
+const baseUrl =
+  process.env.NODE_ENV === 'production'
+    ? 'https://pandafeed.herokuapp.com/api'
+    : 'http://localhost:3000/api';
 
 export const createBoard = (data) => {
   return axios.post(`${baseUrl}/create-board`, data);
