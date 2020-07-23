@@ -46,9 +46,6 @@ export default function App() {
         <Route path="/:company/:board">
           <Board />
         </Route>
-        <Route path="/checkout">
-          <CheckoutForm />
-        </Route>
       </Switch>
     </Router>
   );

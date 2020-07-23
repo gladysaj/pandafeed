@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useHistory } from 'react-router-dom';
+import StripeCheckout from 'react-stripe-checkout';
 
 import { logout } from '../../services/auth';
+import { checkout } from '../../services/checkout';
 
 function useForceUpdate() {
   const [value, setValue] = useState(0);
@@ -11,6 +13,14 @@ function useForceUpdate() {
 const Navbar = ({ isAuth }) => {
   const forceUpdate = useForceUpdate();
   const history = useHistory();
+
+  const handleToken = async (token) => {
+    try {
+      await checkout(token);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   useEffect(() => {
     if (isAuth) forceUpdate();
@@ -40,9 +50,16 @@ const Navbar = ({ isAuth }) => {
               </a>
             </div>
           ) : (
-            <Link to="/checkout" className="hover:text-indigo-600">
-              Go Pro ✨
-            </Link>
+            <StripeCheckout
+              stripeKey="pk_test_51H5MOTEDjdnySEaZnfaHu8j9GhZVbz20zrkCdBEm2Ba5zDtW4YdP1vwI8QIQyllt50ePBrhrxNWrD519WuRCeCiz00Ygr1nCnK"
+              token={handleToken}
+              amount="800"
+              description="Collect feedback for your products"
+              image="/logo.svg"
+              locale="en"
+              name="pandafeed.co"
+              label="Go PRO ✨"
+            />
           )}
         </nav>
         <Link
