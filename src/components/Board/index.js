@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
 
 import { getBoard } from '../../services/board';
 import { createPost, getPosts } from '../../services/post';
@@ -63,7 +63,28 @@ const Board = () => {
 
   return (
     <div className="mt-12 mx-16">
-      <h1 className="text-3xl font-bold leading-tight text-gray-900 mb-10">
+      <Link
+        to="/home"
+        className="mt-3  mb-4 text-indigo-500 inline-flex items-center"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          className="feather feather-arrow-left"
+        >
+          <line x1="19" y1="12" x2="5" y2="12"></line>
+          <polyline points="12 19 5 12 12 5"></polyline>
+        </svg>
+        Go back
+      </Link>
+      <h1 className="text-3xl font-bold leading-tight text-gray-900 mb-4">
         {renderTitle()}
       </h1>
       <div className="flex">

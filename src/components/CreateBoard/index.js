@@ -36,7 +36,7 @@ const CreateBoard = () => {
       ) : null}
       <Link
         to="/home"
-        className="mt-3 text-indigo-500 inline-flex items-center"
+        className="mt-3  mb-4 text-indigo-500 inline-flex items-center"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
