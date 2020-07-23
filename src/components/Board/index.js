@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory, Link } from 'react-router-dom';
 
+import Alert from '../Alert';
 import { getBoard } from '../../services/board';
 import { createPost, getPosts, upvotePost } from '../../services/post';
 
@@ -28,6 +29,7 @@ const Board = () => {
   const [title, setTitle] = useState();
   const [details, setDetails] = useState();
   const [posts, setPosts] = useState([]);
+  const [error, setError] = useState(false);
 
   useEffect(() => {
     if (board === undefined) {
@@ -36,6 +38,14 @@ const Board = () => {
       fetchPosts(board._id, setPosts);
     }
   }, [board]);
+
+  useEffect(() => {
+    if (error) {
+      setTimeout(() => {
+        setError(false);
+      }, 2000);
+    }
+  }, [error]);
 
   const renderTitle = () => {
     if (board !== undefined) {
@@ -57,7 +67,7 @@ const Board = () => {
       setDetails('');
       setPosts([...posts, { postId: post._id, title, details, upvotes: 1 }]);
     } catch (error) {
-      console.log(error);
+      setError(true);
     }
   };
 
@@ -78,33 +88,45 @@ const Board = () => {
       });
       setPosts(updatedPosts);
     } catch (error) {
-      console.log(error);
+      setError(true);
     }
   };
 
   return (
     <div className="mt-12 mx-16">
-      <Link
-        to="/home"
-        className="mt-3  mb-4 text-indigo-500 inline-flex items-center"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="16"
-          height="16"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          className="feather feather-arrow-left"
+      {error ? (
+        <div>
+          <Alert
+            error
+            title="Oops!"
+            text="You need to create an account to do that!"
+          />
+          <br />
+        </div>
+      ) : null}
+      {localStorage.getItem('user') ? (
+        <Link
+          to="/home"
+          className="mt-3  mb-4 text-indigo-500 inline-flex items-center"
         >
-          <line x1="19" y1="12" x2="5" y2="12"></line>
-          <polyline points="12 19 5 12 12 5"></polyline>
-        </svg>
-        Go back
-      </Link>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className="feather feather-arrow-left"
+          >
+            <line x1="19" y1="12" x2="5" y2="12"></line>
+            <polyline points="12 19 5 12 12 5"></polyline>
+          </svg>
+          Go back
+        </Link>
+      ) : null}
       <h1 className="text-3xl font-bold leading-tight text-gray-900 mb-4">
         {renderTitle()}
       </h1>
@@ -144,6 +166,13 @@ const Board = () => {
           </div>
         </section>
         <div className="ml-10 w-3/5">
+          {posts.length === 0 ? (
+            <p className="text-md text-gray-500 m-6">
+              This board is empty 😢
+              <br />
+              👈 Create some posts now!
+            </p>
+          ) : null}
           {posts.map((post, i) => {
             return (
               <div

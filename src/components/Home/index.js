@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 import BoardTable from '../../components/BoardTable';
 import Onboarding from '../../components/Onboarding';
@@ -15,10 +15,11 @@ const fetch = async (setBoards) => {
 };
 
 const Home = () => {
+  const history = useHistory();
   const [boards, setBoards] = useState();
 
   useEffect(() => {
-    fetch(setBoards);
+    localStorage.getItem('user') ? fetch(setBoards) : history.push('/');
   }, []);
 
   const renderContent = () => {

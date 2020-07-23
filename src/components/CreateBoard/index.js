@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useHistory, Link } from 'react-router-dom';
 
 import Alert from '../Alert';
@@ -8,6 +8,12 @@ const CreateBoard = () => {
   const [title, setTitle] = useState();
   const [response, setResponse] = useState({ statusCode: null, message: null });
   const history = useHistory();
+
+  useEffect(() => {
+    if (!localStorage.getItem('user')) {
+      history.push('/');
+    }
+  }, []);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
