@@ -10,10 +10,7 @@ const BoardTable = (props) => {
             <thead>
               <tr>
                 <th className="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
-                  Board Name
-                </th>
-                <th className="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
-                  Company
+                  Board
                 </th>
                 <th className="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
                   Status
@@ -43,17 +40,9 @@ const BoardTable = (props) => {
                               board.title.slice(1)}
                           </div>
                           <div className="text-sm leading-5 text-gray-500">
-                            bernardlane@example.com
+                            {JSON.parse(localStorage.getItem('user')).company}
                           </div>
                         </div>
-                      </div>
-                    </td>
-                    <td className="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
-                      <div className="text-sm leading-5 text-gray-900">
-                        Director
-                      </div>
-                      <div className="text-sm leading-5 text-gray-500">
-                        Human Resources
                       </div>
                     </td>
                     <td className="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
