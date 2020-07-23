@@ -2,6 +2,8 @@
 
 # Pandafeed
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/bf508e7c-1cc6-4447-a123-2778e3728449/deploy-status)](https://app.netlify.com/sites/pandafeed/deploys)
+
 > Give your users the perfect tool to let you know what they want the most and inform them about new features, bug fixes and more to make better product decisions.
 
 ### About
