@@ -36,6 +36,12 @@ const Navbar = ({ isAuth }) => {
           <a href="#about" className="hover:text-indigo-600">
             About
           </a>
+          <Link
+            to="/home"
+            className="mr-5 ml-6 text-indigo-500 hover:text-indigo-600"
+          >
+            Home
+          </Link>
         </nav>
         <Link
           to="/"
