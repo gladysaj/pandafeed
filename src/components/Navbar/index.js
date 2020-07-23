@@ -39,7 +39,11 @@ const Navbar = ({ isAuth }) => {
                 About
               </a>
             </div>
-          ) : null}
+          ) : (
+            <Link to="/checkout" className="hover:text-indigo-600">
+              Go Pro ✨
+            </Link>
+          )}
         </nav>
         <Link
           to={localStorage.getItem('user') ? '/home' : '/'}
