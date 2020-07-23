@@ -14,3 +14,7 @@ export const createPost = (data) => {
 export const getPosts = (boardId) => {
   return axios.get(`${baseUrl}/get-posts/${boardId}`);
 };
+
+export const upvotePost = (data) => {
+  return axios.post(`${baseUrl}/upvote-post`, data);
+};

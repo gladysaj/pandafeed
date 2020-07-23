@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useHistory, Link } from 'react-router-dom';
 
 import { getBoard } from '../../services/board';
-import { createPost, getPosts } from '../../services/post';
+import { createPost, getPosts, upvotePost } from '../../services/post';
 
 const fetch = async (url, setBoard) => {
   try {
@@ -48,14 +48,35 @@ const Board = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      await createPost({
+      const post = await createPost({
         title,
         details,
         board: board._id,
       });
       setTitle('');
       setDetails('');
-      setPosts([...posts, { title, details, upvotes: 1 }]);
+      setPosts([...posts, { postId: post._id, title, details, upvotes: 1 }]);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const handleUpvote = async (postId) => {
+    try {
+      await upvotePost({
+        postId,
+      });
+      const updatedPosts = posts.map((post) => {
+        if (post._id === postId) {
+          return {
+            ...post,
+            upvotes: post.upvotes + 1,
+          };
+        } else {
+          return post;
+        }
+      });
+      setPosts(updatedPosts);
     } catch (error) {
       console.log(error);
     }
@@ -131,7 +152,10 @@ const Board = () => {
               >
                 <div className="mb-2">
                   <div className="flex items-start">
-                    <p className="text-sm text-gray-600 flex flex-col items-center mr-4 font-medium">
+                    <p
+                      onClick={() => handleUpvote(post._id)}
+                      className="text-sm text-gray-600 flex flex-col items-center mr-4 font-medium cursor-pointer hover:text-gray-700"
+                    >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="24"

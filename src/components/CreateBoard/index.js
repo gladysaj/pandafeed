@@ -77,9 +77,6 @@ const CreateBoard = () => {
               placeholder="Title"
               type="text"
             />
-            {/* <p className="text-red-500 text-xs italic">
-              Please fill out this field.
-            </p> */}
           </div>
         </div>
         <div>
