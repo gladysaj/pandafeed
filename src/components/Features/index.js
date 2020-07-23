@@ -3,14 +3,15 @@ import { Link } from 'react-router-dom';
 
 const Features = () => {
   return (
-    <section id="features" className="text-gray-700 body-font">
-      <div className="container px-5 py-24 mx-auto">
+    <section id="features" className="text-gray-700 body-font mt-4">
+      <div className="container px-5 py-24 mt-2">
         <div className="text-center mb-20">
-          <h1 className="sm:text-3xl text-2xl font-medium title-font text-gray-900 mb-4">
+          <h1 className="sm:text-3xl text-2xl font-medium title-font text-gray-900 mt-2">
             Features
           </h1>
           <p className="text-base leading-relaxed xl:w-2/4 lg:w-3/4 mx-auto">
-            In pandafeed you will be able to...
+            Save time by keeping a track of your products, managing and
+            collecting your customers feedback
           </p>
           <div className="flex mt-6 justify-center">
             <div className="w-16 h-1 rounded-full bg-indigo-600 inline-flex"></div>
@@ -33,12 +34,12 @@ const Features = () => {
             </div>
             <div className="flex-grow">
               <h2 className="text-gray-900 text-lg title-font font-medium mb-3">
-                Create a company and manage your products
+                Create a company and manage all your products by creating a
+                board
               </h2>
               <p className="leading-relaxed text-base">
-                Blue bottle crucifix vinyl post-ironic four dollar toast vegan
-                taxidermy. Gastropub indxgo juice poutine, ramps microdosing
-                banh mi pug VHS try-hard.
+                Everything you need to manage your products, show your plans and
+                develop a product roadmap in a well organized environment.
               </p>
               <a className="mt-3 text-indigo-600 inline-flex items-center">
                 Learn More
@@ -74,12 +75,12 @@ const Features = () => {
             </div>
             <div className="flex-grow">
               <h2 className="text-gray-900 text-lg title-font font-medium mb-3">
-                Received feedback from your users
+                Track and keep your users or teammates informed about new
+                features
               </h2>
               <p className="leading-relaxed text-base">
-                Blue bottle crucifix vinyl post-ironic four dollar toast vegan
-                taxidermy. Gastropub indxgo juice poutine, ramps microdosing
-                banh mi pug VHS try-hard.
+                Let all the people know about new features and let them decided
+                the most important for them by upvoting it
               </p>
               <a className="mt-3 text-indigo-600 inline-flex items-center">
                 Learn More
@@ -114,12 +115,13 @@ const Features = () => {
             </div>
             <div className="flex-grow">
               <h2 className="text-gray-900 text-lg title-font font-medium mb-3">
-                Track and keep your users informed
+                Receive feedback from all over the world and keep a great
+                changelog
               </h2>
               <p className="leading-relaxed text-base">
-                Blue bottle crucifix vinyl post-ironic four dollar toast vegan
-                taxidermy. Gastropub indxgo juice poutine, ramps microdosing
-                banh mi pug VHS try-hard.
+                Excellent to collect feedback from everywhere in the world, just
+                share your board to discuss new ideas with your team and allow
+                them to upvote for the features they love the most
               </p>
               <a className="mt-3 text-indigo-600 inline-flex items-center">
                 Learn More
