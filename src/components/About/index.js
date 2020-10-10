@@ -28,7 +28,7 @@ const About = () => {
           <h2 className="text-gray-900 font-medium title-font tracking-wider text-sm">
             by Gladys Alvarez
           </h2>
-          <p className="text-gray-500">Senior Software Enginner</p>
+          <p className="text-gray-500">Creator of Pandafeed & Software Engineer</p>
         </div>
       </div>
     </section>
