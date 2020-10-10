@@ -3,16 +3,12 @@ import { Link } from 'react-router-dom';
 
 const Hero = () => (
   <section className="text-gray-700 body-font">
-    <div className="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">
-      <div className="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 mb-10 md:mb-0">
-        <img
-          className="object-cover object-center rounded"
-          alt="qizai"
-          src="http://spanish.xinhuanet.com/2019-11/21/138572012_15743043559481n.jpg"
-        />
+    <div className="container mx-auto flex px-5 py-10 md:py-24 md:flex-row flex-col items-center w-full xl:w-2/3 px-10 xl:px-0 lg:w-2/3 xl:w-3/4 max-w-screen-xl">
+      <div className="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 mb-10 md:mb-0 md:hidden xl:block">
+        <img className="object-cover object-center rounded" alt="Kanban People" src="/kanban.png" />
       </div>
-      <div className="lg:flex-grow md:w-1/2 lg:pl-24 md:pl-16 flex flex-col md:items-start md:text-left items-center text-center">
-        <h1 className="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">
+      <div className="lg:flex-grow w-full xl:w-2/3 flex flex-col md:items-start md:text-left items-center text-center md:px-20 lg:px-14">
+        <h1 className="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900 leading-10">
           Track product changes and keep your users engaged
         </h1>
         <p className="mb-8 leading-relaxed">
@@ -35,7 +31,7 @@ const Hero = () => (
         <p className="text-sm mt-2 text-gray-500 mb-8 w-full">
           Start your free 14 day trial, no credit card needed
         </p>
-        <div className="flex lg:flex-row md:flex-col">
+        <div className="flex">
           <button className="bg-gray-200 inline-flex py-3 px-5 rounded-lg items-center hover:bg-gray-300 focus:outline-none">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -50,7 +46,7 @@ const Hero = () => (
               <span className="title-font font-medium">Google Play</span>
             </span>
           </button>
-          <button className="bg-gray-200 inline-flex py-3 px-5 rounded-lg items-center lg:ml-4 md:ml-0 ml-4 md:mt-4 mt-0 lg:mt-0 hover:bg-gray-300 focus:outline-none">
+          <button className="bg-gray-200 inline-flex py-3 px-5 rounded-lg items-center ml-4 hover:bg-gray-300 focus:outline-none">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="currentColor"
