@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
+import Spinner from 'react-spinkit';
 
 import Alert from '../Alert';
 import { auth } from '../../services/auth';
@@ -12,10 +13,13 @@ const AuthForm = (props) => {
   const [password, setPassword] = useState();
   const [passwordConfirmation, setPasswordConfirmation] = useState();
   const [response, setResponse] = useState({ statusCode: null, message: null });
+  const [isLoading, setIsLoading] = useState(false);
   const history = useHistory();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+
+    setIsLoading(true);
 
     try {
       const response = await auth(props.signup, {
@@ -29,6 +33,7 @@ const AuthForm = (props) => {
         message: response.data.message,
       });
       setTimeout(() => {
+        setIsLoading(false);
         if (props.signup) {
           history.push('/login');
           setResponse({
@@ -42,10 +47,20 @@ const AuthForm = (props) => {
         }
       }, 1200);
     } catch (error) {
+      setIsLoading(false);
       setResponse({
         statusCode: error.response.status,
         message: error.response.data.message,
       });
+    }
+  };
+
+  const renderSubmitButton = () => {
+    if (isLoading) {
+      return <Spinner name="three-bounce" color="white" />;
+    } else {
+      if (props.signup) return 'Create account';
+      return 'Sign in';
     }
   };
 
@@ -217,7 +232,7 @@ const AuthForm = (props) => {
                   />
                 </svg>
               </span>
-              {props.signup ? 'Create account' : 'Sign in'}
+              {renderSubmitButton()}
             </button>
           </div>
         </form>
