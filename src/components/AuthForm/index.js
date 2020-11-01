@@ -21,15 +21,19 @@ const AuthForm = (props) => {
 
     setIsLoading(true);
 
-    const transformedName = name
-      .toLowerCase()
-      .split(' ')
-      .map((name) => name.charAt(0).toUpperCase() + name.slice(1))
-      .join(' ');
+    let finalName;
+
+    if (props.register) {
+      finalName = name
+        .toLowerCase()
+        .split(' ')
+        .map((name) => name.charAt(0).toUpperCase() + name.slice(1))
+        .join(' ');
+    }
 
     try {
       const response = await auth(props.signup, {
-        name: transformedName,
+        name: finalName || name,
         email,
         company,
         password,
